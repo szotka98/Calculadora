@@ -1,0 +1,66 @@
+package calculadora_sem_interface;
+
+import java.util.Scanner;
+
+public class calc_4op_com2num {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int x,y,z,c = 0;
+		String pergunta = "";
+		do {
+	 	System.out.println("Digite o valor do 1º número: ");
+	 	x  = sc.nextInt();		
+		System.out.println("Digite o valor do 2º número: ");
+		y  = sc.nextInt();
+		
+		/*   
+		 ________(testar se desse jeito  tmb fará a leitura correta)____________
+		System.out.println("Digite o 1º valor : ");		
+		System.out.println("Digite o 2º valor : ");
+		x  = sc.nextInt();
+		y  = sc.nextInt();
+		 */
+		System.out.println("---------------------");
+		System.out.println("|1 -    adição      |");
+		System.out.println("|2 -   subtração    |");
+		System.out.println("|3 - multiplicação  |");
+		System.out.println("|4 -    divisão     |");
+		System.out.println("---------------------");
+		System.out.println("Digite o número da operação que deverá fazer entre os 2 valores digitados:");
+		z  = sc.nextInt();
+		
+		
+		if(z==1){
+			c=x+y;
+			System.out.println("A somatória dos valores é:"+c);		
+		
+		}
+		else if(z==2){
+			c=x-y;	
+			System.out.println("A subtração dos valores é:"+c);
+			
+		}
+		else if(z==3){
+			c=x*y;
+			System.out.println("A multiplicação dos valores é:"+c);
+			
+		}
+		else if(z==4){
+			c=x/y;
+			System.out.println("A divisão dos valores é:"+c);
+			
+		} 
+        System.out.println();
+		System.out.println("Deseja continuar (sim/nao)?");
+        pergunta = sc.next();
+        System.out.println();
+		
+	}while (pergunta.equalsIgnoreCase("sim"));
+
+		
+		
+		sc.close();
+}
+}	
+
