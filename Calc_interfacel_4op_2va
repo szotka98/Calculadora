@@ -1,0 +1,266 @@
+package calculadora_com_interface;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.Panel;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JMenuItem;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
+import java.awt.Dialog.ModalExclusionType;
+
+public class prim_int_4_oper extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField tela;
+
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					prim_int_4_oper frame = new prim_int_4_oper();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	Double v1,v2;
+	String operacao;
+	
+	public prim_int_4_oper() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Usuario\\Downloads\\522506.png"));
+		setTitle("Calculadora");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 506, 488);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton bt_1 = new JButton("1");
+		bt_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tela.setText(tela.getText()+"1");
+			}
+		});
+		bt_1.setBounds(10, 314, 109, 56);
+		bt_1.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_1);
+		
+		JButton bt_2 = new JButton("2");
+		bt_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tela.setText(tela.getText()+"2");
+			}
+		});
+		bt_2.setBounds(129, 314, 109, 56);
+		bt_2.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_2);
+		
+		JButton bt_3 = new JButton("3");
+		bt_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tela.setText(tela.getText()+"3");
+			}
+		});
+		bt_3.setBounds(248, 314, 109, 56);
+		bt_3.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_3);
+		
+		JButton bt_4 = new JButton("4");
+		bt_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tela.setText(tela.getText()+"4");
+			}
+		});
+		bt_4.setBounds(10, 247, 109, 56);
+		bt_4.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_4);
+		
+		JButton bt_7 = new JButton("7");
+		bt_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tela.setText(tela.getText()+"7");
+			}
+		});
+		bt_7.setBounds(10, 180, 109, 56);
+		bt_7.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_7);
+		
+		JButton bt_8 = new JButton("8");
+		bt_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tela.setText(tela.getText()+"8");
+			}
+		});
+		bt_8.setBounds(129, 180, 109, 56);
+		bt_8.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_8);
+		
+		JButton bt_5 = new JButton("5");
+		bt_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tela.setText(tela.getText()+"5");
+			}
+		});
+		bt_5.setBounds(129, 247, 109, 56);
+		bt_5.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_5);
+		
+		JButton bt_6 = new JButton("6");
+		bt_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tela.setText(tela.getText()+"6");
+			}
+		});
+		bt_6.setBounds(248, 247, 109, 56);
+		bt_6.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_6);
+		
+		JButton bt_9 = new JButton("9");
+		bt_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tela.setText(tela.getText()+"9");
+			}
+		});
+		bt_9.setBounds(248, 180, 109, 56);
+		bt_9.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_9);
+		
+		JButton bt_0 = new JButton("0");
+		bt_0.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tela.setText(tela.getText()+"0");
+			}
+		});
+		bt_0.setBounds(10, 381, 228, 56);
+		bt_0.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_0);
+		
+		JButton bt_apaga = new JButton("C");
+		bt_apaga.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				v1 = null;
+				v2 = null;
+				tela.setText("");
+			}
+		});
+		bt_apaga.setBounds(367, 247, 109, 56);
+		bt_apaga.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_apaga);
+		
+		JButton bt_igual = new JButton("=");
+		bt_igual.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				v2 = Double.parseDouble(tela.getText());
+				if (operacao == "soma") {
+				   tela.setText(String.valueOf(v1+v2));
+				}
+				else if (operacao == "menos") {
+					tela.setText(String.valueOf(v1-v2));
+				}
+				else if  (operacao == "multi") {
+					tela.setText(String.valueOf(v1*v2));
+				}
+				else if  (operacao == "divide") {
+					tela.setText(String.valueOf(v1/v2));	
+				}
+			}
+		});
+		bt_igual.setBounds(367, 314, 109, 123);
+		bt_igual.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_igual);
+		
+		JButton bt_divide = new JButton("/");
+		bt_divide.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				v1 = Double.parseDouble(tela.getText());
+				tela.setText("");
+				operacao = "divide";
+			}
+		});
+		bt_divide.setBounds(129, 113, 109, 56);
+		bt_divide.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_divide);
+		
+		JButton bt_multi = new JButton("*");
+		bt_multi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				v1 = Double.parseDouble(tela.getText());
+				tela.setText("");
+				operacao = "multi";
+			}
+		});
+		bt_multi.setBounds(10, 113, 109, 56);
+		bt_multi.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_multi);
+		
+		JButton bt_menos = new JButton("-");
+		bt_menos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				v1 = Double.parseDouble(tela.getText());
+				tela.setText("");
+				operacao = "menos";
+			}
+		});
+		bt_menos.setBounds(367, 113, 109, 56);
+		bt_menos.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_menos);
+		
+		JButton bt_soma = new JButton("+");
+		bt_soma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				v1 = Double.parseDouble(tela.getText());
+				tela.setText("");
+				operacao = "soma";
+			}
+		});
+		bt_soma.setBounds(248, 113, 109, 56);
+		bt_soma.setFont(new Font("Arial", Font.BOLD, 20));
+		contentPane.add(bt_soma);
+		
+		tela = new JTextField();
+		tela.setHorizontalAlignment(SwingConstants.RIGHT);
+		tela.setFont(new Font("Tahoma", Font.PLAIN, 50));
+		tela.setBounds(10, 11, 467, 91);
+		contentPane.add(tela);
+		tela.setColumns(10);
+		
+		JButton bt_decimais = new JButton(".");
+		bt_decimais.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tela.setText(tela.getText()+".");
+			}
+		});
+		bt_decimais.setFont(new Font("Arial", Font.BOLD, 20));
+		bt_decimais.setBounds(248, 381, 109, 56);
+		contentPane.add(bt_decimais);
+		
+		JButton bt_limpa = new JButton("CE");
+		bt_limpa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tela.setText("");
+			}
+		});
+		
+		bt_limpa.setFont(new Font("Arial", Font.BOLD, 20));
+		bt_limpa.setBounds(367, 180, 109, 56);
+		contentPane.add(bt_limpa);
+	}
+}
