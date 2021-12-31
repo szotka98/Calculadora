@@ -1,0 +1,67 @@
+package calculadora_sem_interface;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class calc_4op_comNnum_arraylist {
+	
+	public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	String operacional = "";
+	String pergunta = "";
+	int z,y = 0;
+	int x = 0;
+	ArrayList<Integer> valores = new ArrayList<Integer>();
+	do {
+		System.out.println("---------------------");
+		System.out.println("|1 -    adição      |");
+		System.out.println("|2 -   subtração    |");
+		System.out.println("---------------------");
+		System.out.println("Digite o número da operação que deverá :");
+		z  = sc.nextInt();
+		
+		if(z==1){
+			operacional = "somados";
+			
+		}
+		else if(z==2){
+			operacional = "subtraidos";
+			
+		}
+		
+		System.out.print("Digite os valores que serão "+operacional+"\n");
+        System.out.print("para encerrar, digite 0.\n");
+		int valor = sc.nextInt();
+		 while(valor != 0 && valor == 1 || valor == 2){
+			valores.add(valor);
+			valor = sc.nextInt();
+			}
+		 
+			if(z==1){
+				   for(int i = 0; i != valores.size();i++) {
+					   y = valores.get(i);
+					   x = x + y;
+				   }
+			}
+			else if(z==2){
+				
+				   for(int i = 0; i != valores.size();i++) {
+					  y = valores.get(i);
+					  x = x - y;
+				   }
+			}
+		System.out.println("Os valores "+operacional+" deu:"+x);	
+
+
+    System.out.println();
+	System.out.println("Deseja continuar (sim/nao)?");
+    pergunta = sc.next();
+    System.out.println();
+	
+}while (pergunta.equalsIgnoreCase("sim"));
+
+	
+	
+	sc.close();
+}
+}
